@@ -1,18 +1,28 @@
 perguntas = [
     {
         'Pergunta': 'Quanto é 2+2?',
-        'Opções': ['1', '3', '4', '5'],
-        'Resposta': '4',
+        'Opções': {'a':'1','b': '3','c': '4','d': '5'},
+        'Resposta': 'c',
     },
     {
         'Pergunta': 'Quanto é 5*5?',
-        'Opções': ['25', '55', '10', '51'],
-        'Resposta': '25',
+        'Opções': {'a':'25','b': '55','c': '10','d': '51'},
+        'Resposta': 'a',
     },
     {
         'Pergunta': 'Quanto é 10/2?',
-        'Opções': ['4', '5', '2', '1'],
-        'Resposta': '5',
+        'Opções': {'a':'4','b': '5','c': '2','d': '1'},
+        'Resposta': 'b',
+    },
+    {
+        'Pergunta': 'Quanto é 2*6?',
+        'Opções': {'a':'10','b':'12','c':'8','d':'15'},
+        'Resposta': 'b'
+    },
+    {
+        'Pergunta': 'Quanto é 3+5*2?',
+        'Opções': {'a':'10','b':'12','c':'15','d':'13'},
+        'Resposta': 'd'
     },
 ]
 
@@ -22,23 +32,20 @@ for pergunta in perguntas:
     print()
 
     opcoes = pergunta['Opções']
-    for i, opcao in enumerate(opcoes):
+    for i, opcao in opcoes.items():
         print(f'{i})', opcao)
     print()
 
     escolha = input('Escolha uma opção: ')
 
     acertou = False
-    escolha_int = None
     qtd_opcoes = len(opcoes)
 
-    if escolha.isdigit():
-        escolha_int = int(escolha)
+    
 
-    if escolha_int is not None:
-        if escolha_int >= 0 and escolha_int < qtd_opcoes:
-            if opcoes[escolha_int] == pergunta['Resposta']:
-                acertou = True
+    if escolha is not None:
+        if escolha == pergunta['Resposta']:
+            acertou = True
 
     print()
     if acertou:
